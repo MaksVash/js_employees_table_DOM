@@ -128,7 +128,6 @@ fieldConfig.forEach((field) => {
   }
 
   element.dataset.qa = field.qa;
-  element.required = true;
 
   label.appendChild(element);
   wraper.appendChild(label);
