@@ -171,16 +171,8 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  const ageValue = Number(age);
-
-  if (ageValue === '' || age < 18 || age > 90) {
+  if (age < 18 || age > 90) {
     pushNatification('error', 'Invalid Age', 'Age must be between 18 and 90.');
-
-    return;
-  }
-
-  if (salary.trim() === '') {
-    pushNatification('error', 'Error', 'Salary is required.');
 
     return;
   }
@@ -198,13 +190,13 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
-const notification = document.createElement('div');
-const title = document.createElement('h2');
-const description = document.createElement('p');
-
-notification.dataset.qa = 'notification';
-
 const pushNatification = (type, titleText, descText) => {
+  const notification = document.createElement('div');
+  const title = document.createElement('h2');
+  const description = document.createElement('p');
+
+  notification.dataset.qa = 'notification';
+
   notification.classList.add('notification', type);
   title.textContent = titleText;
   description.textContent = descText;
