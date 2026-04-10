@@ -161,15 +161,19 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  if (position.trim().length < 4) {
-    pushNatification(
-      'error',
-      'Invalid Position',
-      'Position must be at least 4 characters.',
-    );
+  if (position.trim() === '') {
+    pushNatification('error', 'Invalid Position', 'Position must requirad.');
 
     return;
   }
+
+  if (!officeSelect.value || officeSelect.selectedIndex === -1) {
+    pushNatification('error', 'Error', 'Please select an office.');
+
+    return;
+  }
+
+  Number(age);
 
   if (age < 18 || age > 90) {
     pushNatification('error', 'Invalid Age', 'Age must be between 18 and 90.');
